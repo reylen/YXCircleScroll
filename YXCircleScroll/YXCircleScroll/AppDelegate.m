@@ -15,10 +15,29 @@
 @implementation AppDelegate
 
 
+- (void)dealloc
+{
+    [_window release];
+    [_viewController release];
+    [super dealloc];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds] autorelease];
+    
+    // init viewController
+    self.viewController = [[[ViewController alloc]initWithNibName:nil bundle:nil] autorelease];
+    self.viewController.title = @"CircleScroll";
+    UINavigationController *nav = [[[UINavigationController alloc]initWithRootViewController:self.viewController] autorelease];
+    nav.navigationBar.translucent = NO;
+    self.window.rootViewController = nav;
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    NSArray *imageArray = @[@"1.jpg",@"2.jpg"/*,@"3.jpg",@"4.jpg",@"5.jpg"*/];
+    YXCircleScrollView *circleScrollView = [[[YXCircleScrollView alloc]initWithFrame:self.view.bounds dataSource:imageArray] autorelease];
+    circleScrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:circleScrollView];
 }
 
 - (void)didReceiveMemoryWarning {

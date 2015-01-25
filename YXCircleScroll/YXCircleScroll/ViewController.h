@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YXCircleScrollView.h"
 
 @interface ViewController : UIViewController
 
